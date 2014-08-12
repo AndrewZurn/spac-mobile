@@ -1,4 +1,6 @@
 function PilatesWindow(fontModifier) {
+	var ServiceHelper = require('ui/common/ServiceHelper');
+	
 	var pilatesWindow = Ti.UI.createWindow({
 		backgroundImage : '/images/pilates_bg.png',
 		navTintColor :'#DECC99',
@@ -40,8 +42,30 @@ function PilatesWindow(fontModifier) {
 		},
 		opacity : 1
 	});
+	
+	var testButton = Ti.UI.createLabel({
+		color: '#DECC99',
+		borderColor: '#ece4ce',
+	//	borderRadius: 10,
+		textAlign: 'left',
+		height : '10%',
+		bottom : 5,
+		borderWidth:1.7,
+		width: '93%',
+		text: ' Test Service Helper',
+		font : {
+			fontFamily : 'Arial',
+			fontSize : 15 * fontModifier
+		},
+	}); 
+	testButton.addEventListener('click', function(){
+		var schedule = ServiceHelper.getGroupSchedule();
+		alert(schedule.Schedule.Monday.Class[0]);
+	});
+	
 	wrapper.add(body);
 	wrapper.add(titleLabel);
+	wrapper.add(testButton);
 	pilatesWindow.add(wrapper);
 
 	return pilatesWindow;
