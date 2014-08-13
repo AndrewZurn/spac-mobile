@@ -1,5 +1,5 @@
 function PilatesWindow(fontModifier) {
-	var ServiceHelper = require('ui/common/ServiceHelper');
+	var ServiceHelper = require('ui/service/ServiceHelper');
 	
 	var pilatesWindow = Ti.UI.createWindow({
 		backgroundImage : '/images/pilates_bg.png',
@@ -59,8 +59,11 @@ function PilatesWindow(fontModifier) {
 		},
 	}); 
 	testButton.addEventListener('click', function(){
-		var schedule = ServiceHelper.getGroupSchedule();
-		alert(schedule.Schedule.Monday.Class[0]);
+		var schedule;
+		ServiceHelper.getGroupSchedule(function(returnedSchedule) {
+			schedule = returnedSchedule;
+			alert(schedule.schedule.monday.clazz[0]);
+		});
 	});
 	
 	wrapper.add(body);

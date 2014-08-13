@@ -1,4 +1,6 @@
 function SmallGroupWindow(fontModifier) {
+	var ServiceHelper = require('ui/service/ServiceHelper');
+	
 	var smallGroupWindow = Ti.UI.createWindow({
 		backgroundImage : '/images/small_group_bg.png',
 		navTintColor :'#DECC99',

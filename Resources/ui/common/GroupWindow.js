@@ -1,4 +1,26 @@
 function GroupWindow(fontModifier) {
+	var ServiceHelper = require('ui/service/ServiceHelper');
+	
+	ServiceHelper.getGroupSchedule(function(schedule) {
+		var mondayClassesArray 		= schedule.schedule.monday.clazz;
+		var tuesdayClassesArray 	= schedule.schedule.tuesday.clazz;
+		var wednesdayClassesArray 	= schedule.schedule.wednesday.clazz;
+		var thursdayClassesArray 	= schedule.schedule.thursday.clazz;
+		var fridayClassesArray 		= schedule.schedule.friday.clazz;
+		var saturdayClassesArray 	= schedule.schedule.saturday.clazz;
+		var sundayClassesArray		= schedule.schedule.sunday.clazz;
+
+		for(var i = 0; i < mondayClassesArray.length; i++ ) {
+			var view = Ti.UI.createView({
+				
+			});
+			var label = Ti.UI.createView({
+				
+			});	
+
+		}
+	});
+	
 	var groupWindow = Ti.UI.createWindow({
 		backgroundImage : '/images/group_bg.png',
 		navTintColor :'#DECC99',
