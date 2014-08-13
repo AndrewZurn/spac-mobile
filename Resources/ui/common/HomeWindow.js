@@ -113,6 +113,8 @@ function HomeWindow(tabGroup) {
 	wrapper.add(hoursLabel);
 	wrapper.add(lineLabel2);
 	wrapper.add(contactLabel);
+	
+	
 
 	return wrapper;
 }

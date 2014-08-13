@@ -17,6 +17,12 @@ function GroupWindow(fontModifier) {
 		setupClasses(wrapper, fontModifier, 'FRIDAY', fridayClassArray);
 		setupClasses(wrapper, fontModifier, 'SATURDAY', saturdayClassArray);
 		setupClasses(wrapper, fontModifier, 'SUNDAY', sundayClassArray);
+		
+		var blankView = Ti.UI.createView({
+			text : '',
+			height : 10
+		});
+		wrapper.add(blankView);
 	});
 
 	var groupWindow = Ti.UI.createWindow({
@@ -38,19 +44,22 @@ function GroupWindow(fontModifier) {
 	var wrapper = Ti.UI.createScrollView({
 		backgroundColor : 'transparent',
 		height : '90%',
-		width : '80%'
+		width : '80%', 
+		layout : 'vertical',
+		zIndex : 1
 	});
 	var body = Ti.UI.createScrollView({
 		backgroundColor : 'black',
-		height : 'auto',
-		width : 'auto',
+		height : '90%',
+		width : '80%',
 		opacity : 0.75,
 		layout : 'vertical',
+		zIndex : 0
 	});
 	var titleLabel = Ti.UI.createLabel({
 		color : '#ece4ce',
 		text : 'Schedule',
-		top : '2%',
+		top : '1%',
 		width : '90%',
 		textAlign : 'left',
 		font : {
@@ -60,8 +69,8 @@ function GroupWindow(fontModifier) {
 		},
 		opacity : 1
 	});
-	wrapper.add(body);
 	wrapper.add(titleLabel);
+	groupWindow.add(body);
 	groupWindow.add(wrapper);
 
 	return groupWindow;
@@ -91,15 +100,16 @@ function setupClasses(wrapper, fontModifier, day, classArray) {
 	});
 	dayView.add(dayLabel);
 	wrapper.add(dayView);
+	
 	for (var i = 0; i < classArray.length; i++) {
 		var clazz = classArray[i];
 
 		var view = Ti.UI.createView({
 			height : '9%',
 			width : '93%',
-			zIndex : 1
+			zIndex : 1,
 		});
-		var label = Ti.UI.createView({
+		var label = Ti.UI.createLabel({
 			color : '#DECC99',
 			borderColor : '#ece4ce',
 			//	borderRadius: 10,
@@ -107,14 +117,19 @@ function setupClasses(wrapper, fontModifier, day, classArray) {
 			height : 28 * fontModifier,
 			borderWidth : 1.7,
 			width : '93%',
-			text : clazz.time + ' - ' + clazz.name,
+			text : ' ' + clazz.time + ' - ' + clazz.name,
 			font : {
 				fontFamily : 'Arial',
 				fontSize : 15 * fontModifier
 			},
+			name : clazz.name,
+			time : clazz.time,
+			instructor : clazz.instructor,
+			room : clazz.room
 		});
-		view.addEventListener('click', function() {
-			alert('Class: ' + clazz.name + '\nInstructor: ' + clazz.instructor + '\nTime: ' + clazz.time + '\nRoom: ' + clazz.room);
+		view.addEventListener('click', function(e) {
+			alert('Class: ' + e.source.name + '\nInstructor: ' + e.source.instructor
+				 + '\nTime: ' + e.source.time + '\nRoom: ' + e.source.room);
 		});
 		view.add(label);
 		wrapper.add(view);

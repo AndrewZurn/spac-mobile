@@ -10,6 +10,7 @@ function ApplicationTabGroup(Window) {
 
 	// add the Home tab
 	tabGroup.addTab(Ti.UI.createTab({
+		id : 0,
 		image : 'images/home.png',
 		title : '  HOME',
 		font : {
@@ -37,6 +38,7 @@ function ApplicationTabGroup(Window) {
 
 	// add the Athletics tab
 	tabGroup.addTab(Ti.UI.createTab({
+		id : 1,
 		image : 'images/athletics.png',
 		title : ' ATHLETICS',
 		font : {
@@ -64,6 +66,7 @@ function ApplicationTabGroup(Window) {
 
 	// add the Events tab
 	tabGroup.addTab(Ti.UI.createTab({
+		id : 2,
 		image : 'images/events.png',
 		title : '  EVENTS',
 		font : {
@@ -103,6 +106,19 @@ function ApplicationTabGroup(Window) {
 		backgroundColor : '#2e2e2e',
 		color : '#d29941',
 		style : 0
+	});
+	
+	tabGroup.addEventListener('swipe', function(e){
+		if (e.direction == 'left') {
+			if (tabGroup.getActiveTab().id < 2) {
+				tabGroup.setActiveTab(tabGroup.getActiveTab().id + 1); //TODO: Just need to change the active tab on the bottom of the screen now
+			}
+		}
+		else {
+			if (tabGroup.getActiveTab().id > 0 ) {
+				tabGroup.setActiveTab(tabGroup.getActiveTab().id - 1); //TODO: Just need to change the active tab on the bottom of the screen now
+			}
+		}
 	});
 
 	return tabGroup;
