@@ -59,7 +59,7 @@ function GroupWindow(fontModifier) {
 	var titleLabel = Ti.UI.createLabel({
 		color : '#ece4ce',
 		text : 'Schedule',
-		top : '1%',
+		top : 5,
 		width : '90%',
 		textAlign : 'left',
 		font : {
