@@ -1,4 +1,4 @@
-function AthleticsWindow(tabGroup) {
+function AthleticsWindow(navGroup) {
 	var GroupWindow = require('ui/common/GroupWindow'),
 		SmallGroupWindow = require('ui/common/SmallGroupWindow'),
 		PilatesWindow = require('ui/common/PilatesWindow');
@@ -54,7 +54,7 @@ function AthleticsWindow(tabGroup) {
 		},
 	});
 	groupButton.addEventListener('click', function() {
-		tabGroup.activeTab.open(GroupWindow(fontModifier));
+		navGroup.openWindow(GroupWindow(fontModifier), {animated : true});
 	});
 
 	// create the small group fitness button
@@ -74,7 +74,7 @@ function AthleticsWindow(tabGroup) {
 		},
 	});
 	smallButton.addEventListener('click', function() {
-		tabGroup.activeTab.open(SmallGroupWindow(fontModifier));
+		navGroup.openWindow(SmallGroupWindow(fontModifier), {animated: true});
 	});
 
 	// create the pilates group fitness button
@@ -94,7 +94,7 @@ function AthleticsWindow(tabGroup) {
 		},
 	});
 	pilatesButton.addEventListener('click', function() {
-		tabGroup.activeTab.open(PilatesWindow(fontModifier));
+		navGroup.openWindow(PilatesWindow(fontModifier), {animated: true});
 	});
 
 	wrapper.add(body);

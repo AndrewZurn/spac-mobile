@@ -28,6 +28,7 @@ function PilatesWindow(fontModifier) {
 	var pilatesWindow = Ti.UI.createWindow({
 		backgroundImage : '/images/pilates_bg.png',
 		navTintColor :'#DECC99',
+		barColor : '#2e2e2e',
 		titleControl : Titanium.UI.createLabel({
 			color : '#d29941',
 			text : 'PILATES',

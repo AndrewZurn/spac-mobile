@@ -28,6 +28,7 @@ function SmallGroupWindow(fontModifier) {
 	var smallGroupWindow = Ti.UI.createWindow({
 		backgroundImage : '/images/small_group_bg.png',
 		navTintColor : '#DECC99',
+		barColor : '#2e2e2e',
 		titleControl : Titanium.UI.createLabel({
 			color : '#d29941',
 			text : 'SMALL GROUP',

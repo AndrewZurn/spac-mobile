@@ -1,4 +1,4 @@
-function HomeWindow(tabGroup) {
+function HomeWindow(navGroup) {
 	var platformHeight = Ti.Platform.displayCaps.platformHeight;
 	var fontModifier = 1;
 	

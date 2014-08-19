@@ -28,6 +28,7 @@ function GroupWindow(fontModifier) {
 	var groupWindow = Ti.UI.createWindow({
 		backgroundImage : '/images/group_bg.png',
 		navTintColor : '#DECC99',
+		barColor : '#2e2e2e',
 		titleControl : Titanium.UI.createLabel({
 			color : '#d29941',
 			text : 'GROUP FITNESS',

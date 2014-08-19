@@ -1,4 +1,4 @@
-function EventsWindow(tabGroup) {
+function EventsWindow(navGroup) {
 	var platformHeight = Ti.Platform.displayCaps.platformHeight;
 	
 	// body
