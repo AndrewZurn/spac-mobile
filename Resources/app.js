@@ -23,9 +23,8 @@ if (Ti.version < 1.8) {
     height = Ti.Platform.displayCaps.platformHeight,
     width = Ti.Platform.displayCaps.platformWidth;
 
+	var platform = Ti.Platform.osname;
   function checkTablet() {
-    var platform = Ti.Platform.osname;
-
     switch (platform) {
       case 'ipad':
         return true;
@@ -43,16 +42,14 @@ if (Ti.version < 1.8) {
 
   var isTablet = checkTablet();
 
-  var Window;
+  var ApplicationScrollableWindow;
   if (isTablet) {
-    Window = require('ui/tablet/ApplicationWindow');
-  } else {
-    Window = require('ui/handheld/ApplicationWindow');
+    ApplicationScrollableWindow = require('ui/handheld/tablet/ApplicationScrollableWindow');
+  } else if (platform == 'android') {
+  	ApplicationScrollableWindow = require('ui/handheld/android/ApplicationScrollableWindow');
+  } else { // is iOS
+    ApplicationScrollableWindow = require('ui/handheld/ios/ApplicationScrollableWindow');
   }
 
-  //var ApplicationTabGroup = require('ui/common/ApplicationTabGroup');
-  //new ApplicationTabGroup(Window).open();
-  
-  var ApplicationScrollableWindow = require('ui/common/ApplicationScrollableWindow');
   new ApplicationScrollableWindow().open();
 })();
