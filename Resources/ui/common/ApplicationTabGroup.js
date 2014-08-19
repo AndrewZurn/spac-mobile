@@ -3,10 +3,14 @@ function ApplicationTabGroup(Window) {
 	var HomeWindow = require('ui/common/HomeWindow'),
 		AthleticsWindow = require('ui/common/AthleticsWindow'),
 		EventsWindow = require('ui/common/EventsWindow');
-	
+
 	// create the tab group to use
 	var tabGroup = Ti.UI.createTabGroup();
 	tabGroup.barColor = "#2e2e2e";
+	
+	var homeWindow = HomeWindow(tabGroup),
+		athleticsWindow = AthleticsWindow(tabGroup),
+		eventsWindow = EventsWindow(tabGroup);
 
 	// add the Home tab
 	tabGroup.addTab(Ti.UI.createTab({
@@ -91,9 +95,9 @@ function ApplicationTabGroup(Window) {
 			})
 		})
 	}));
-	tabGroup.tabs[0].window.add(HomeWindow(tabGroup));
-	tabGroup.tabs[1].window.add(AthleticsWindow(tabGroup));
-	tabGroup.tabs[2].window.add(EventsWindow(tabGroup));
+	tabGroup.tabs[0].window.add(homeWindow);
+	tabGroup.tabs[1].window.add(athleticsWindow);
+	tabGroup.tabs[2].window.add(eventsWindow);
 
 	// Now call our overrideTabs function!
 	overrideTabs(tabGroup, {
@@ -108,16 +112,34 @@ function ApplicationTabGroup(Window) {
 		style : 0
 	});
 	
-	tabGroup.addEventListener('swipe', function(e){
+		tabGroup.addEventListener('swipe', function(e) {
 		if (e.direction == 'left') {
 			if (tabGroup.getActiveTab().id < 2) {
-				tabGroup.setActiveTab(tabGroup.getActiveTab().id + 1); //TODO: Just need to change the active tab on the bottom of the screen now
+			tabGroup.setActiveTab(tabGroup.getActiveTab().id + 1);
+			//TODO: Just need to change the active tab on the bottom of the screen now
 			}
-		}
-		else {
-			if (tabGroup.getActiveTab().id > 0 ) {
-				tabGroup.setActiveTab(tabGroup.getActiveTab().id - 1); //TODO: Just need to change the active tab on the bottom of the screen now
+
+			// if (tabGroup.getActiveTab().id == 0) {
+				// tabGroup.tabs[1].window.open({animated: true});
+			// } else if (tabGroup.getActiveTab().id == 1) {
+				// tabGroup.tabs[2].window.open({animated: true});
+			// } else {
+				// //do nothing
+			// }
+		} else {
+			if (tabGroup.getActiveTab().id > 0) {
+				tabGroup.setActiveTab(tabGroup.getActiveTab().id - 1);
+				//TODO: Just need to change the active tab on the bottom of the screen now
 			}
+
+			// if (tabGroup.getActiveTab().id == 2) {
+				// tabGroup.tabs[1].window.open({animated: true});
+			// } else if (tabGroup.getActiveTab().id == 1) {
+				// tabGroup.tabs[0].window.open({animated: true});
+			// } else {
+				// //do nothing
+			// }
+
 		}
 	});
 

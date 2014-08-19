@@ -50,6 +50,9 @@ if (Ti.version < 1.8) {
     Window = require('ui/handheld/ApplicationWindow');
   }
 
-  var ApplicationTabGroup = require('ui/common/ApplicationTabGroup');
-  new ApplicationTabGroup(Window).open();
+  //var ApplicationTabGroup = require('ui/common/ApplicationTabGroup');
+  //new ApplicationTabGroup(Window).open();
+  
+  var ApplicationScrollableWindow = require('ui/common/ApplicationScrollableWindow');
+  new ApplicationScrollableWindow().open();
 })();
