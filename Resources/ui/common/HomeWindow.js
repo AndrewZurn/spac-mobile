@@ -37,7 +37,7 @@ function HomeWindow(navGroup) {
 	});
 	var label = Ti.UI.createLabel({
 		color : '#DECC99',
-		text : 'The Saint Paul Atheltic Club is the premier fitness and ' + 'social club in the heart of historic downtown Saint Paul.  The Club ' + 'has a lot to offer from state of the art amenities, high energy fitness ' + 'classes, exquisite socail events, and our wonderful hospitality. \n',
+		text : 'The Saint Paul Atheltic Club is the premier fitness and ' + 'social club in the heart of historic downtown Saint Paul.  The Club ' + 'has a lot to offer from state of the art amenities, high energy fitness ' + 'classes, exquisite social events, and our wonderful hospitality. \n',
 		top : '10%',
 		width : '93%',
 		textAlign : 'left',
