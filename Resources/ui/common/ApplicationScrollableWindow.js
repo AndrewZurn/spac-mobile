@@ -2,6 +2,8 @@ function ApplicationScrollableWindow() {
 	// import dependencies
 	var HomeWindow = require('ui/common/HomeWindow'), AthleticsWindow = require('ui/common/AthleticsWindow'), EventsWindow = require('ui/common/EventsWindow');
 
+	var platform = Ti.Platform.osname;
+
 	var window = Ti.UI.createWindow({
 		backgroundImage : '/images/spac_bg.png',
 		barColor : '#2e2e2e',
@@ -20,11 +22,15 @@ function ApplicationScrollableWindow() {
 		})
 	});
 
-	var navGroup = Ti.UI.iOS.createNavigationWindow({
-		window : window
-	});
-
-	var homeWindowView = HomeWindow(navGroup), athleticsWindowView = AthleticsWindow(navGroup), eventsWindowView = EventsWindow(navGroup);
+	if ( platform == 'android'){
+		var homeWindowView = HomeWindow(), athleticsWindowView = AthleticsWindow(), eventsWindowView = EventsWindow();
+	} else { //is iphone or ipad
+		var navGroup = Ti.UI.iOS.createNavigationWindow({
+			window : window
+		});
+		
+		var homeWindowView = HomeWindow(navGroup), athleticsWindowView = AthleticsWindow(navGroup), eventsWindowView = EventsWindow(navGroup);
+	}
 
 	var scrollableView = Ti.UI.createScrollableView({
 		views : [homeWindowView, athleticsWindowView, eventsWindowView],
@@ -128,7 +134,11 @@ function ApplicationScrollableWindow() {
 		button.setBackgroundColor('#545454');
 	}
 
-	return navGroup;
+	if ( platform == 'android' ){
+		return window;
+	} else {
+		return navGroup;
+	}
 }
 
 module.exports = ApplicationScrollableWindow;

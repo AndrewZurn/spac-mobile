@@ -42,14 +42,7 @@ if (Ti.version < 1.8) {
 
   var isTablet = checkTablet();
 
-  var ApplicationScrollableWindow;
-  if (isTablet) {
-    ApplicationScrollableWindow = require('ui/handheld/tablet/ApplicationScrollableWindow');
-  } else if (platform == 'android') {
-  	ApplicationScrollableWindow = require('ui/handheld/android/ApplicationScrollableWindow');
-  } else { // is iOS
-    ApplicationScrollableWindow = require('ui/handheld/ios/ApplicationScrollableWindow');
-  }
+  var ApplicationScrollableWindow = require('ui/common/ApplicationScrollableWindow');
 
   new ApplicationScrollableWindow().open();
 })();

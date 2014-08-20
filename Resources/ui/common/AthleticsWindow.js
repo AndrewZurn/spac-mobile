@@ -3,6 +3,7 @@ function AthleticsWindow(navGroup) {
 		SmallGroupWindow = require('ui/common/SmallGroupWindow'),
 		PilatesWindow = require('ui/common/PilatesWindow');
 	
+	var platform = Ti.Platform.osname;
 	var platformHeight = Ti.Platform.displayCaps.platformHeight;
 	var fontModifier = 1;
 
@@ -54,7 +55,11 @@ function AthleticsWindow(navGroup) {
 		},
 	});
 	groupButton.addEventListener('click', function() {
-		navGroup.openWindow(GroupWindow(fontModifier), {animated : true});
+		if ( platform == 'android' ){
+			GroupWindow(fontModifier).open({animated : true});
+		} else {
+			navGroup.openWindow(GroupWindow(fontModifier), {animated : true});	
+		}
 	});
 
 	// create the small group fitness button
@@ -74,7 +79,11 @@ function AthleticsWindow(navGroup) {
 		},
 	});
 	smallButton.addEventListener('click', function() {
-		navGroup.openWindow(SmallGroupWindow(fontModifier), {animated: true});
+		if ( platform == 'android' ){
+			SmallGroupWindow(fontModifier).open({animated : true});
+		} else {
+			navGroup.openWindow(SmallGroupWindow(fontModifier), {animated : true});	
+		}
 	});
 
 	// create the pilates group fitness button
@@ -94,7 +103,11 @@ function AthleticsWindow(navGroup) {
 		},
 	});
 	pilatesButton.addEventListener('click', function() {
-		navGroup.openWindow(PilatesWindow(fontModifier), {animated: true});
+		if ( platform == 'android' ){
+			PilatesWindow(fontModifier).open({animated : true});
+		} else {
+			navGroup.openWindow(PilatesWindow(fontModifier), {animated : true});	
+		}
 	});
 
 	wrapper.add(body);
