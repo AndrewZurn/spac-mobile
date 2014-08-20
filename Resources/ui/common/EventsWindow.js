@@ -1,11 +1,20 @@
 function EventsWindow(navGroup) {
+	var platform = Ti.Platform.osname;
 	var platformHeight = Ti.Platform.displayCaps.platformHeight;
+	var fontModifier = 1;
+
+	if (platformHeight >= 500) {
+		fontModifier = 1.1;
+	} else if (platformHeight >= 1200) {
+		fontModifier = 1.25;
+	}
 	
 	// body
 	var wrapper = Ti.UI.createView({
 		backgroundColor : 'transparent',
-		height : '90%',
-		width : '80%'
+		height : '87%',
+		width : '80%',
+		top : '5%'
 	});
 	var body = Ti.UI.createView({
 		backgroundColor : 'black',

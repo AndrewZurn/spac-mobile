@@ -1,5 +1,7 @@
 function SmallGroupWindow(fontModifier) {
 	var ServiceHelper = require('ui/service/ServiceHelper');
+	
+	var platform = Ti.Platform.osname;
 
 	ServiceHelper.getSmallGroupSchedule(function(schedule) {
 		var mondayClassArray = schedule.schedule.monday.clazz;
@@ -25,8 +27,15 @@ function SmallGroupWindow(fontModifier) {
 		wrapper.add(blankView);
 	});
 	
+	var imagePath;
+	if ( platform == 'android' ) {
+		imagePath = '/images/HD/';
+	} else { // is iphone or ipad
+		imagePath = '/images/SD/';
+	}
+	
 	var smallGroupWindow = Ti.UI.createWindow({
-		backgroundImage : '/images/small_group_bg.png',
+		backgroundImage : imagePath + 'small_group_bg.png',
 		navTintColor : '#DECC99',
 		barColor : '#2e2e2e',
 		titleControl : Titanium.UI.createLabel({

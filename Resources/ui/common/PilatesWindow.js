@@ -1,6 +1,8 @@
 function PilatesWindow(fontModifier) {
 	var ServiceHelper = require('ui/service/ServiceHelper');
 	
+	var platform = Ti.Platform.osname;
+	
 	ServiceHelper.getPilatesSchedule(function(schedule) {
 		var mondayClassArray = schedule.schedule.monday.clazz;
 		var tuesdayClassArray = schedule.schedule.tuesday.clazz;
@@ -25,8 +27,15 @@ function PilatesWindow(fontModifier) {
 		wrapper.add(blankView);
 	});
 	
+	var imagePath;
+	if ( platform == 'android' ) {
+		imagePath = '/images/HD/';
+	} else { // is iphone or ipad
+		imagePath = '/images/SD/';
+	}
+	
 	var pilatesWindow = Ti.UI.createWindow({
-		backgroundImage : '/images/pilates_bg.png',
+		backgroundImage : imagePath + 'pilates_bg.png',
 		navTintColor :'#DECC99',
 		barColor : '#2e2e2e',
 		titleControl : Titanium.UI.createLabel({

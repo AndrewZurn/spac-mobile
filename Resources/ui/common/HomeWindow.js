@@ -4,13 +4,16 @@ function HomeWindow(navGroup) {
 	
 	if (platformHeight >= 500) {
 		fontModifier = 1.1;
+	} else if (platformHeight >= 1000) {
+		fontModifier = 1.25;
 	}
 	
 	// body
 	var wrapper = Ti.UI.createView({
 		backgroundColor : 'transparent',
-		height : '90%',
-		width : '80%'
+		height : '87%',
+		width : '80%',
+		top : '5%'
 	});
 	var body = Ti.UI.createView({
 		backgroundColor : 'black',
@@ -114,8 +117,6 @@ function HomeWindow(navGroup) {
 	wrapper.add(lineLabel2);
 	wrapper.add(contactLabel);
 	
-	
-
 	return wrapper;
 }
 module.exports = HomeWindow;

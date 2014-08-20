@@ -9,13 +9,16 @@ function AthleticsWindow(navGroup) {
 
 	if (platformHeight >= 500) {
 		fontModifier = 1.1;
+	} else if (platformHeight >= 1200) {
+		fontModifier = 1.25;
 	}
 
 	// body
 	var wrapper = Ti.UI.createScrollView({
 		backgroundColor : 'transparent',
-		height : '90%',
-		width : '80%'
+		height : '87%',
+		width : '80%',
+		top : '5%'
 	});
 	var body = Ti.UI.createScrollView({
 		backgroundColor : 'black',

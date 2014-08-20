@@ -3,9 +3,16 @@ function ApplicationScrollableWindow() {
 	var HomeWindow = require('ui/common/HomeWindow'), AthleticsWindow = require('ui/common/AthleticsWindow'), EventsWindow = require('ui/common/EventsWindow');
 
 	var platform = Ti.Platform.osname;
+	
+	var imagePath;
+	if ( platform == 'android' ) {
+		imagePath = '/images/HD/';
+	} else { // is iphone or ipad
+		imagePath = '/images/SD/';
+	}
 
 	var window = Ti.UI.createWindow({
-		backgroundImage : '/images/spac_bg.png',
+		backgroundImage : imagePath + 'spac_bg.png',
 		barColor : '#2e2e2e',
 		titleControl : Titanium.UI.createLabel({
 			color : '#d29941',
@@ -55,7 +62,7 @@ function ApplicationScrollableWindow() {
 	});
 
 	var homeButton = Ti.UI.createButton({
-		image : 'images/home.png',
+		image : imagePath + 'home.png',
 		title : '  HOME',
 		color : '#d29941',
 		backgroundColor : '#545454',
@@ -78,7 +85,7 @@ function ApplicationScrollableWindow() {
 	buttonView.add(homeButton);
 
 	var athleticsButton = Ti.UI.createButton({
-		image : 'images/athletics.png',
+		image : imagePath + 'athletics.png',
 		title : '  ATHLETICS',
 		color : '#d29941',
 		backgroundColor : '#2e2e2e',
@@ -101,7 +108,7 @@ function ApplicationScrollableWindow() {
 	buttonView.add(athleticsButton);
 
 	var eventsButton = Ti.UI.createButton({
-		image : 'images/events.png',
+		image : imagePath + 'events.png',
 		title : '  EVENTS',
 		color : '#d29941',
 		backgroundColor : '#2e2e2e',

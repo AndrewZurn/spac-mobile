@@ -1,5 +1,7 @@
 function GroupWindow(fontModifier) {
 	var ServiceHelper = require('ui/service/ServiceHelper');
+	
+	var platform = Ti.Platform.osname;
 
 	ServiceHelper.getGroupSchedule(function(schedule) {
 		var mondayClassArray = schedule.schedule.monday.clazz;
@@ -24,9 +26,16 @@ function GroupWindow(fontModifier) {
 		});
 		wrapper.add(blankView);
 	});
+	
+	var imagePath;
+	if ( platform == 'android' ) {
+		imagePath = '/images/HD/';
+	} else { // is iphone or ipad
+		imagePath = '/images/SD/';
+	}
 
 	var groupWindow = Ti.UI.createWindow({
-		backgroundImage : '/images/group_bg.png',
+		backgroundImage : imagePath + 'group_bg.png',
 		navTintColor : '#DECC99',
 		barColor : '#2e2e2e',
 		titleControl : Titanium.UI.createLabel({
