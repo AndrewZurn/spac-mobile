@@ -5,6 +5,7 @@ function GroupWindow(fontModifier) {
 
 	ServiceHelper.getGroupSchedule(function(schedule) {
 		var mondayClassArray = schedule.schedule.monday.clazz;
+		
 		var tuesdayClassArray = schedule.schedule.tuesday.clazz;
 		var wednesdayClassArray = schedule.schedule.wednesday.clazz;
 		var thursdayClassArray = schedule.schedule.thursday.clazz;
@@ -110,10 +111,10 @@ function setupClasses(wrapper, fontModifier, day, classArray) {
 	});
 	dayView.add(dayLabel);
 	wrapper.add(dayView);
-	
+
 	for (var i = 0; i < classArray.length; i++) {
 		var clazz = classArray[i];
-
+	
 		var view = Ti.UI.createView({
 			height : '9%',
 			width : '93%',

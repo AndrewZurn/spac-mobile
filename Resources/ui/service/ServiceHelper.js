@@ -1,7 +1,7 @@
 var SMALL_GROUP_FILENAME = "small_group_schedule.json";
 var GROUP_FILENAME = "group_schedule.json";
 var PILATES_FILENAME = "pilates_schedule.json";
-var EVENTS_FILENAME = "events_schedule.json";
+var EVENTS_FILENAME = "events.json";
 
 var BASE_URL = "http://andrewzurn.com/spac-demo/";
 

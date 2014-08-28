@@ -30,13 +30,13 @@ function ApplicationScrollableWindow() {
 	});
 
 	if ( platform == 'android'){
-		var homeWindowView = HomeWindow(), athleticsWindowView = AthleticsWindow(), eventsWindowView = EventsWindow();
+		var homeWindowView = HomeWindow(), athleticsWindowView = AthleticsWindow(), eventsWindowView = EventsWindow(window, null);
 	} else { //is iphone or ipad
 		var navGroup = Ti.UI.iOS.createNavigationWindow({
 			window : window
 		});
 		
-		var homeWindowView = HomeWindow(navGroup), athleticsWindowView = AthleticsWindow(navGroup), eventsWindowView = EventsWindow(navGroup);
+		var homeWindowView = HomeWindow(navGroup), athleticsWindowView = AthleticsWindow(navGroup), eventsWindowView = EventsWindow(window, navGroup);
 	}
 
 	var scrollableView = Ti.UI.createScrollableView({
