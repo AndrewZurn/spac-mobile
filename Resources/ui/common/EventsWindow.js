@@ -55,26 +55,20 @@ function setupEvents(wrapper, fontModifier, eventsArray) {
 	
 	for(var i = 0; i < eventsArray.length; i++) {
 		var event = eventsArray[i];
-		var line = '';
-		if(i!=eventsArray.length-1){
-			line ='_____________________';
-		}
 		
 		var view = Ti.UI.createView({
 			height : '20%',
 			width : '93%',
 			zIndex : 1,
-			//borderColor:'red'
 		});
 		var label = Ti.UI.createLabel({
 			color : '#DECC99',
-			//	borderRadius: 10,
-			//borderColor:'white',
+			borderWidth : 1.7,
+			borderColor : '#ece4ce',
 			textAlign : 'left',
-			//height :'100%',
 			width : '93%',
-			text : event.name + '\n' + event.date + '\n' + event.location+
-			'\n'+line,
+			height : '85%',
+			text : ' ' + event.name + '\n ' + event.date + '\n ' + event.location,
 			font : {
 				fontFamily : 'Arial',
 				fontSize : 15 * fontModifier
@@ -83,7 +77,6 @@ function setupEvents(wrapper, fontModifier, eventsArray) {
 			about: event.description,
 			eventTitle: event.name
 		});
-		
 		label.addEventListener('click', function(e) {
 			PopupWindow(e.source.eventTitle, e.source.about, e.source.contact).open({animated : true});
 		});

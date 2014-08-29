@@ -8,7 +8,6 @@ function PopupWindow(eventTitle, content, contactInfo) {
 	var window = Ti.UI.createWindow({
 		height : windowHeight,
 		width : '73%',
-		borderRadius : 15,
 	    borderColor : '#d29941',
 	    backgroundColor : '#2e2e2e'
 	});
