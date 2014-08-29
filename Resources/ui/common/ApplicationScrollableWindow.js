@@ -28,6 +28,16 @@ function ApplicationScrollableWindow() {
 			}
 		})
 	});
+	
+	var body = Ti.UI.createView({
+		backgroundColor : 'black',
+		height : '80%',
+		width : '80%',
+		opacity : 0.35,
+		layout : 'vertical',
+		top : '5%'
+	});
+	window.add(body);
 
 	if ( platform == 'android'){
 		var homeWindowView = HomeWindow(), athleticsWindowView = AthleticsWindow(), eventsWindowView = EventsWindow(window, null);

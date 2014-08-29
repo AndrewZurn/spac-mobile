@@ -20,13 +20,6 @@ function AthleticsWindow(navGroup) {
 		width : '80%',
 		top : '5%'
 	});
-	var body = Ti.UI.createScrollView({
-		backgroundColor : 'black',
-		height : 'auto',
-		width : 'auto',
-		opacity : 0.35,
-		layout : 'vertical',
-	});
 	var titleLabel = Ti.UI.createLabel({
 		color : '#ece4ce',
 		text : 'Athletics',
@@ -61,7 +54,7 @@ function AthleticsWindow(navGroup) {
 		if ( platform == 'android' ){
 			GroupWindow(fontModifier).open({animated : true});
 		} else {
-			navGroup.openWindow(GroupWindow(fontModifier), {animated : true});	
+			navGroup.openWindow(GroupWindow(fontModifier), {animated : true});
 		}
 	});
 
@@ -113,7 +106,6 @@ function AthleticsWindow(navGroup) {
 		}
 	});
 
-	wrapper.add(body);
 	wrapper.add(titleLabel);
 	wrapper.add(groupButton);
 	wrapper.add(smallButton);

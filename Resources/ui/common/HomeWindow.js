@@ -15,13 +15,6 @@ function HomeWindow(navGroup) {
 		width : '80%',
 		top : '5%'
 	});
-	var body = Ti.UI.createView({
-		backgroundColor : 'black',
-		height : 'auto',
-		width : 'auto',
-		opacity : 0.35,
-		layout : 'vertical',
-	});
 	var titleLabel = Ti.UI.createLabel({
 		color : '#ece4ce',
 		text : 'Welcome',
@@ -98,7 +91,7 @@ function HomeWindow(navGroup) {
 	});
 	var contactLabel = Ti.UI.createLabel({
 		color : '#DECC99',
-		text : '340 Cedar Street\n' + 'St. Paul, MN 55101\n' + '(651) 291-7722\n' + 'thespac.org',
+		text : '340 Cedar Street\n' + 'St. Paul, MN 55101\n' + '(651) 291-7722\n' + 'thespac.com',
 		top : '76%',
 		width : '93%',
 		textAlign : 'left',
@@ -108,7 +101,7 @@ function HomeWindow(navGroup) {
 		},
 		opacity : 1
 	});
-	wrapper.add(body);
+	
 	wrapper.add(titleLabel);
 	wrapper.add(label);
 	wrapper.add(lineLabel);

@@ -1,4 +1,5 @@
 function EventsWindow(window, navGroup) {
+	Ti.API.log('eventsWindow opened');
 	var ServiceHelper = require('ui/service/ServiceHelper');
 	
 	ServiceHelper.getEventsSchedule(function(events) {
@@ -26,18 +27,10 @@ function EventsWindow(window, navGroup) {
 	// body
 	var wrapper = Ti.UI.createScrollView({
 		backgroundColor : 'transparent',
-		height : '90%',
-		width : '80%', 
-		layout : 'vertical',
-		zIndex : 1
-	});
-	var body = Ti.UI.createScrollView({
-		backgroundColor : 'black',
-		height : '90%',
+		height : '87%',
 		width : '80%',
-		opacity : 0.75,
-		layout : 'vertical',
-		zIndex : 0
+		top : '5%',
+		layout : 'vertical'
 	});
 	var titleLabel = Ti.UI.createLabel({
 		color : '#ece4ce',
@@ -53,9 +46,6 @@ function EventsWindow(window, navGroup) {
 		opacity : 1
 	});
 	wrapper.add(titleLabel);
-	window.add(body);
-	window.add(wrapper);
-
 
 	return wrapper;
 }
@@ -63,50 +53,43 @@ function EventsWindow(window, navGroup) {
 function setupEvents(wrapper, fontModifier, eventsArray) {
 	for(var i = 0; i < eventsArray.length; i++) {
 		var event = eventsArray[i];
+		var line = '';
+		if(i!=eventsArray.length-1){
+			line ='_____________________';
+		}
 		
 		var view = Ti.UI.createView({
-			height : '19%',
+			height : '20%',
 			width : '93%',
 			zIndex : 1,
-			borderColor:'red'
+			//borderColor:'red'
 		});
 		var label = Ti.UI.createLabel({
 			color : '#DECC99',
 			//	borderRadius: 10,
-			borderColor:'white',
+			//borderColor:'white',
 			textAlign : 'left',
 			//height :'100%',
 			width : '93%',
-			text : event.name + '\n' + event.date + '\n' + event.location,
+			text : event.name + '\n' + event.date + '\n' + event.location+
+			'\n'+line,
 			font : {
 				fontFamily : 'Arial',
 				fontSize : 15 * fontModifier
 			},
+			
+			contact: event.contact,
+			about: event.description,
+			
+			
 		});
-		var labelView = Ti.UI.createView({
-			height : '2%',
-			width : '93%',
-			zIndex : 1,
+		
+		label.addEventListener('click', function(e) {
+			alert('Description: ' + e.source.about + '\nContact: ' + e.source.contact);
 		});
-		var lineLabel = Ti.UI.createLabel({
-		top:'1%',
-		color : '#ece4ce',
-		text : '_____________________',
-		//height:'2%',
-		width : '93%',
-		textAlign : 'left',
-		font : {
-			fontFamily : 'Arial',
-			fontSize : 16
-		},
-		opacity : 1
-	});
+		
 		view.add(label);
 		wrapper.add(view);
-		if(i!=eventsArray.length-1){
-			labelView.add(lineLabel);
-			wrapper.add(labelView);
-		}
 		
 	}
 }
