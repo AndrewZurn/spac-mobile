@@ -91,7 +91,7 @@ function HomeWindow(navGroup) {
 	});
 	var contactLabel = Ti.UI.createLabel({
 		color : '#DECC99',
-		text : '340 Cedar Street\n' + 'St. Paul, MN 55101\n' + '(651) 291-7722\n' + 'thespac.com',
+		text : '340 Cedar Street\n' + 'St. Paul, MN 55101',
 		top : '76%',
 		width : '93%',
 		textAlign : 'left',
@@ -102,6 +102,39 @@ function HomeWindow(navGroup) {
 		opacity : 1
 	});
 	
+	var phoneNumber = Ti.UI.createLabel({
+		color : '#DECC99',
+		text : '(651) 291-7722',
+		top : '86%',
+		width : '93%',
+		textAlign : 'left',
+		font : {
+			fontFamily : 'Arial',
+			fontSize : 15 * fontModifier
+		},
+		opacity : 1
+	});
+	phoneNumber.addEventListener('click', function(e){
+		Ti.Platform.openURL('tel:9526490887');
+	});
+	
+	var url = Ti.UI.createLabel({
+		color : '#417AD2',
+		text : 'thespac.com',
+		top : '91%',
+		width : '93%',
+		textAlign : 'left',
+		font : {
+			fontFamily : 'Arial',
+			fontSize : 15 * fontModifier,
+			textDecoration:'underline'
+		},
+		opacity : 1
+	});
+	url.addEventListener('click', function(e){
+		Ti.Platform.openURL('http://thespac.com');
+	});
+	
 	wrapper.add(titleLabel);
 	wrapper.add(label);
 	wrapper.add(lineLabel);
@@ -109,6 +142,8 @@ function HomeWindow(navGroup) {
 	wrapper.add(hoursLabel);
 	wrapper.add(lineLabel2);
 	wrapper.add(contactLabel);
+	wrapper.add(phoneNumber);
+	wrapper.add(url);
 	
 	return wrapper;
 }

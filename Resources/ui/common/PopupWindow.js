@@ -59,10 +59,10 @@ function PopupWindow(eventTitle, content, contactInfo) {
 		});
 		var url = Ti.UI.createLabel({
 			text : contactInfo,
-			top : '72%',
+			top : '73%',
 			height : '5%',
 			widht : '90%',
-			color : '#00C2FC',
+			color : '#417AD2',
 			font : {
 				fontFamily : 'Arial',
 				fontSize : 16,
