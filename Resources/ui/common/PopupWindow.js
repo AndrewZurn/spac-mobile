@@ -78,9 +78,9 @@ function PopupWindow(eventTitle, content, contactInfo) {
 				emailDialog.toRecipients = [url];
 				emailDialog.messageBody = 'Hello,\r\n\r\nI would like some more information regarding the ' 
 											+ e.source.eventTitle + ' event.\r\n\r\n' +
-											'If you could please email be back at ~~PLEASE INSERT EMAIL ADDRESS HERE~~ ' +
-											'with some additional information on this event, that would be great.\r\n\r\n' +
-											'Thanks, and have a nice day.\r\n\r\n ~~PLEASE INSERT YOUR NAME NERE~~';
+											'If you could please email be back with some additional ' +
+											'information on this event, that would be great.\r\n\r\n' +
+											'Thank you.';
 				emailDialog.open();
 			}
 			else {

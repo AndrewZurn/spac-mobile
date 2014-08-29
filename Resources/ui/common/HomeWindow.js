@@ -115,7 +115,17 @@ function HomeWindow(navGroup) {
 		opacity : 1
 	});
 	phoneNumber.addEventListener('click', function(e){
-		Ti.Platform.openURL('tel:9526490887');
+		var dialog = Ti.UI.createAlertDialog({
+    		call: 0,
+    		buttonNames: ['Call', 'Cancel'],
+    		message: '(651)-291-7722'
+  		});
+  		dialog.addEventListener('click', function(e){
+    		if (e.index === e.source.call){
+		      	Ti.Platform.openURL('tel:9526490887');
+			}
+		});
+		dialog.show();
 	});
 	
 	var url = Ti.UI.createLabel({
