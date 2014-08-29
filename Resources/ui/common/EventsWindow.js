@@ -1,5 +1,6 @@
 function EventsWindow(window, navGroup) {
-	Ti.API.log('eventsWindow opened');
+	
+	// load dependencies
 	var ServiceHelper = require('ui/service/ServiceHelper');
 	
 	ServiceHelper.getEventsSchedule(function(events) {
@@ -12,7 +13,6 @@ function EventsWindow(window, navGroup) {
 		});
 		wrapper.add(blankView);
 	});
-	
 	
 	var platform = Ti.Platform.osname;
 	var platformHeight = Ti.Platform.displayCaps.platformHeight;
@@ -51,6 +51,8 @@ function EventsWindow(window, navGroup) {
 }
 
 function setupEvents(wrapper, fontModifier, eventsArray) {
+	var PopupWindow = require('ui/common/PopupWindow');
+	
 	for(var i = 0; i < eventsArray.length; i++) {
 		var event = eventsArray[i];
 		var line = '';
@@ -77,15 +79,13 @@ function setupEvents(wrapper, fontModifier, eventsArray) {
 				fontFamily : 'Arial',
 				fontSize : 15 * fontModifier
 			},
-			
 			contact: event.contact,
 			about: event.description,
-			
-			
+			eventTitle: event.name
 		});
 		
 		label.addEventListener('click', function(e) {
-			alert('Description: ' + e.source.about + '\nContact: ' + e.source.contact);
+			PopupWindow(e.source.eventTitle, e.source.about, e.source.contact).open({animated : true});
 		});
 		
 		view.add(label);

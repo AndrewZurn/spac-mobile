@@ -88,6 +88,8 @@ function GroupWindow(fontModifier) {
 }
 
 function setupClasses(wrapper, fontModifier, day, classArray) {
+	var PopupWindow = require('ui/common/PopupWindow');
+	
 	var dayView = Ti.UI.createView({
 		//top:'2%',
 		height : '10%',
@@ -139,8 +141,9 @@ function setupClasses(wrapper, fontModifier, day, classArray) {
 			room : clazz.room
 		});
 		view.addEventListener('click', function(e) {
-			alert('Class: ' + e.source.name + '\nInstructor: ' + e.source.instructor
-				 + '\nTime: ' + e.source.time + '\nRoom: ' + e.source.room);
+			var classInfo = 'Class: ' + e.source.name + '\nInstructor: ' + e.source.instructor
+				 + '\nTime: ' + e.source.time + '\nRoom: ' + e.source.room;
+			PopupWindow('Class Information', classInfo, '').open({animated : true});
 		});
 		view.add(label);
 		wrapper.add(view);
