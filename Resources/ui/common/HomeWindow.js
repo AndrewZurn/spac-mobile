@@ -16,11 +16,11 @@ function HomeWindow(navGroup) {
 		descriptionTop = '12%';
 		lineOneTop = '40%';
 		clubTop = '44%';
-		clubHoursTop = '48%';
-		lineTwoTop = '54%';
-		addressTop = '59%';
-		phoneNumberTop = '67%';
-		websiteLinkTop = '71%';
+		clubHoursTop = '49%';
+		lineTwoTop = '56%';
+		addressTop = '61%';
+		phoneNumberTop = '69%';
+		websiteLinkTop = '73%';
 		width = '73%';
 	}
 	else {

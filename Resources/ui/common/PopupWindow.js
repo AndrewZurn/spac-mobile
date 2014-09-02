@@ -1,8 +1,21 @@
 function PopupWindow(eventTitle, content, contactInfo) {
 	
-	var windowHeight = '38%';
+	var windowHeight = '42%';
 	if (contactInfo != null && contactInfo != '') {
 		windowHeight = '50%';
+	}
+	
+	var platform = Ti.Platform.osname;
+	var contentTop, contactTop, urlTop;
+	if (platform == 'android') {
+		contentTop = '11%';
+		contactTop = '58%';
+		urlTop = '66%';
+	}
+	else {
+		contentTop = '14%';
+		contactTop = '66%';
+		urlTop = '74%';
 	}
 	
 	var window = Ti.UI.createWindow({
@@ -13,14 +26,13 @@ function PopupWindow(eventTitle, content, contactInfo) {
 	});
 	
 	var view = Ti.UI.createView({
-		height : '98%',
+		height : '85%',
 		width : 'auto',
 	});
 	
 	var title = Ti.UI.createLabel({
 		text : eventTitle,
-		top : '2%',
-		height : '10%',
+		top : '1%',
 		width : '90%',
 		color : '#DECC99',
 		font : {
@@ -33,7 +45,7 @@ function PopupWindow(eventTitle, content, contactInfo) {
 	
 	var content = Ti.UI.createLabel({
 		text : content,
-		top : '14%',
+		top : contentTop,
 		height : '50%',
 		width : '90%',
 		color : '#DECC99',
@@ -47,8 +59,7 @@ function PopupWindow(eventTitle, content, contactInfo) {
 	if (contactInfo != null && contactInfo != '') {
 		var contact = Ti.UI.createLabel({
 			text : 'For more info:',
-			top : '66%',
-			height : '5%',
+			top : contactTop,
 			widht : '90%',
 			color : '#DECC99',
 			font : {
@@ -59,8 +70,7 @@ function PopupWindow(eventTitle, content, contactInfo) {
 		});
 		var url = Ti.UI.createLabel({
 			text : contactInfo,
-			top : '73%',
-			height : '5%',
+			top : urlTop,
 			widht : '90%',
 			color : '#417AD2',
 			font : {
@@ -93,9 +103,9 @@ function PopupWindow(eventTitle, content, contactInfo) {
 	}
 	
 	var closeButton = Ti.UI.createButton({
-		bottom : '3%',
+		bottom : '2%',
 	    width : '40%',
-	    height : '10%',
+	    height : '15%',
 	    title : "Close",
 	    textAlign : 'center',
 		color : '#d29941',
