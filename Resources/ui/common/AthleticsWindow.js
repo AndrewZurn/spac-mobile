@@ -12,19 +12,35 @@ function AthleticsWindow(navGroup) {
 	} else if (platformHeight >= 1200) {
 		fontModifier = 1.25;
 	}
+	
+	var titleTop, groupButtonTop, smallButtonTop, pilatesButtonTop, width;
+	if (platform == 'android') {
+		titleTop = '6%';
+		groupButtonTop = '13%';
+		smallButtonTop = '26%';
+		pilatesButtonTop = '39%';
+		width = '73%';
+	}
+	else {
+		titleTop = '2%';
+		groupButtonTop = '12%';
+		smallButtonTop = '25%';
+		pilatesButtonTop = '38%';
+		width = '90%';
+	}
 
 	// body
 	var wrapper = Ti.UI.createScrollView({
 		backgroundColor : 'transparent',
-		height : '87%',
+		height : '80%',
 		width : '80%',
 		top : '5%'
 	});
 	var titleLabel = Ti.UI.createLabel({
 		color : '#ece4ce',
 		text : 'Athletics',
-		top : '2%',
-		width : '90%',
+		top : titleTop,
+		width : width,
 		textAlign : 'left',
 		font : {
 			fontFamily : 'Arial',
@@ -37,9 +53,9 @@ function AthleticsWindow(navGroup) {
 	// create the group fitness button
 	var groupButton = Ti.UI.createButton({
 		title : 'Group Fitness Schedule',
-		top : '12%',
+		top : groupButtonTop,
 		height : '10%',
-		width : '90%',
+		width : width,
 		color : '#DECC99',
 		textAlign : 'center',
 		borderColor : '#ece4ce',
@@ -61,9 +77,9 @@ function AthleticsWindow(navGroup) {
 	// create the small group fitness button
 	var smallButton = Ti.UI.createButton({
 		title : 'Small Group Schedule',
-		top : '25%',
+		top : smallButtonTop,
 		height : '10%',
-		width : '90%',
+		width : width,
 		color : '#DECC99',
 		textAlign : 'center',
 		borderColor : '#ece4ce',
@@ -85,9 +101,9 @@ function AthleticsWindow(navGroup) {
 	// create the pilates group fitness button
 	var pilatesButton = Ti.UI.createButton({
 		title : 'Pilates Schedule',
-		top : '38%',
+		top : pilatesButtonTop,
 		height : '10%',
-		width : '90%',
+		width : width,
 		color : '#DECC99',
 		textAlign : 'center',
 		borderColor : '#ece4ce',

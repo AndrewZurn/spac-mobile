@@ -3,6 +3,7 @@ function EventsWindow(window, navGroup) {
 	// load dependencies
 	var ServiceHelper = require('ui/service/ServiceHelper');
 	
+	// get the current schedule, and add elements to the screen
 	ServiceHelper.getEventsSchedule(function(events) {
 		var eventsArray = events.events;
 		setupEvents(wrapper, fontModifier, eventsArray);
@@ -24,6 +25,16 @@ function EventsWindow(window, navGroup) {
 		fontModifier = 1.25;
 	}
 	
+	var titleTop, width;
+	if (platform == 'android') {
+		titleTop = '6%';
+		width = '73%';
+	}
+	else {
+		titleTop = '2%';
+		width = '90%';
+	}
+	
 	// body
 	var wrapper = Ti.UI.createScrollView({
 		backgroundColor : 'transparent',
@@ -35,8 +46,8 @@ function EventsWindow(window, navGroup) {
 	var titleLabel = Ti.UI.createLabel({
 		color : '#ece4ce',
 		text : 'Events',
-		top : 5,
-		width : '90%',
+		top : titleTop,
+		width : width,
 		textAlign : 'left',
 		font : {
 			fontFamily : 'Arial',
@@ -53,12 +64,21 @@ function EventsWindow(window, navGroup) {
 function setupEvents(wrapper, fontModifier, eventsArray) {
 	var PopupWindow = require('ui/common/PopupWindow');
 	
+	var platform = Ti.Platform.osname;
+	var width;
+	if (platform == 'android') {
+		width = '85%';
+	}
+	else {
+		width = '93%';
+	}
+	
 	for(var i = 0; i < eventsArray.length; i++) {
 		var event = eventsArray[i];
 		
 		var view = Ti.UI.createView({
 			height : '20%',
-			width : '93%',
+			width : width,
 			zIndex : 1,
 		});
 		var label = Ti.UI.createLabel({
@@ -66,7 +86,7 @@ function setupEvents(wrapper, fontModifier, eventsArray) {
 			borderWidth : 1.7,
 			borderColor : '#ece4ce',
 			textAlign : 'left',
-			width : '93%',
+			width : width,
 			height : '85%',
 			text : ' ' + event.name + '\n ' + event.date + '\n ' + event.location,
 			font : {

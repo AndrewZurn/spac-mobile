@@ -53,7 +53,7 @@ function ApplicationScrollableWindow() {
 		views : [homeWindowView, athleticsWindowView, eventsWindowView],
 		showPagingControl : false,
 		height : '94%',
-		top : '0%'
+		top : '0%',
 	});
 	scrollableView.addEventListener('scroll', function(e) {//also takes care of
 		if (e.currentPage == 0) {
