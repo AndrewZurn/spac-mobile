@@ -65,19 +65,23 @@ function setupEvents(wrapper, fontModifier, eventsArray) {
 	var PopupWindow = require('ui/common/PopupWindow');
 	
 	var platform = Ti.Platform.osname;
-	var width;
+	var width, viewHeight, labelHeight;
 	if (platform == 'android') {
 		width = '85%';
+		viewHeight = 72;
+		labelHeight = 63;
 	}
 	else {
 		width = '93%';
+		viewHeight = '20%';
+		labelHeight = '85%';
 	}
 	
 	for(var i = 0; i < eventsArray.length; i++) {
 		var event = eventsArray[i];
 		
 		var view = Ti.UI.createView({
-			height : '20%',
+			height : viewHeight,
 			width : width,
 			zIndex : 1,
 		});
@@ -87,7 +91,7 @@ function setupEvents(wrapper, fontModifier, eventsArray) {
 			borderColor : '#ece4ce',
 			textAlign : 'left',
 			width : width,
-			height : '85%',
+			height : labelHeight,
 			text : ' ' + event.name + '\n ' + event.date + '\n ' + event.location,
 			font : {
 				fontFamily : 'Arial',
@@ -102,8 +106,7 @@ function setupEvents(wrapper, fontModifier, eventsArray) {
 		});
 		
 		view.add(label);
-		wrapper.add(view);
-		
+		wrapper.add(view);	
 	}
 }
 module.exports = EventsWindow;
