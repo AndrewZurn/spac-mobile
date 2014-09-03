@@ -1,6 +1,6 @@
 function PopupWindow(eventTitle, content, contactInfo) {
 	
-	var windowHeight = '42%';
+	var windowHeight = '36%';
 	if (contactInfo != null && contactInfo != '') {
 		windowHeight = '50%';
 	}
@@ -8,31 +8,31 @@ function PopupWindow(eventTitle, content, contactInfo) {
 	var platform = Ti.Platform.osname;
 	var contentTop, contactTop, urlTop;
 	if (platform == 'android') {
-		contentTop = '11%';
-		contactTop = '58%';
-		urlTop = '66%';
+		contentTop = '8%';
+		contactTop = '56%';
+		urlTop = '64%';
 	}
 	else {
-		contentTop = '14%';
-		contactTop = '66%';
-		urlTop = '74%';
+		contentTop = '11%';
+		contactTop = '64%';
+		urlTop = '72%';
 	}
 	
 	var window = Ti.UI.createWindow({
-		height : windowHeight,
-		width : '73%',
-	    borderColor : '#d29941',
-	    backgroundColor : '#2e2e2e'
+		height : '100%',
+		width : '100%',
 	});
 	
 	var view = Ti.UI.createView({
-		height : '85%',
-		width : 'auto',
+		height : windowHeight,
+		width : '73%',
+		borderColor : '#d29941',
+	    backgroundColor : '#2e2e2e'
 	});
 	
 	var title = Ti.UI.createLabel({
 		text : eventTitle,
-		top : '1%',
+		top : '2%',
 		width : '90%',
 		color : '#DECC99',
 		font : {
@@ -103,9 +103,9 @@ function PopupWindow(eventTitle, content, contactInfo) {
 	}
 	
 	var closeButton = Ti.UI.createButton({
-		bottom : '2%',
+		bottom : '3%',
 	    width : '40%',
-	    height : '15%',
+	    height : '13%',
 	    title : "Close",
 	    textAlign : 'center',
 		color : '#d29941',
@@ -123,6 +123,17 @@ function PopupWindow(eventTitle, content, contactInfo) {
 	});
 	view.add(closeButton);
 	
+	var transparentView = Ti.UI.createView({
+		backgroundColor : 'black',
+		height : '100%',
+		width : '100%',
+		opacity : 0.45
+	});
+	transparentView.addEventListener('click', function(){
+		window.close();
+	});
+	
+	window.add(transparentView);
 	window.add(view);
 	
 	return window;

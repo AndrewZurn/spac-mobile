@@ -140,10 +140,10 @@ function setupClasses(wrapper, fontModifier, day, classArray) {
 			instructor : clazz.instructor,
 			room : clazz.room
 		});
-		view.addEventListener('click', function(e) {
+		label.addEventListener('click', function(e) {
 			var classInfo = 'Class: ' + e.source.name + '\nInstructor: ' + e.source.instructor
 				 + '\nTime: ' + e.source.time + '\nRoom: ' + e.source.room;
-			PopupWindow('Class Information', classInfo, '').open({animated : true});
+			var popupWindow = PopupWindow('Class Information', classInfo, '').open({animated : true});
 		});
 		view.add(label);
 		wrapper.add(view);
