@@ -89,9 +89,24 @@ function SmallGroupWindow(fontModifier) {
 function setupClasses(wrapper, fontModifier, day, classArray) {
 	var PopupWindow = require('ui/common/PopupWindow');
 	
+	var classViewHeight, classLabelHeight, dayViewHeight, dayLabelHeight;
+	var platform = Ti.Platform.osname;
+	if ( platform == 'android') {
+		dayViewHeight = 34;
+		dayLabelHeight = 32;
+		classViewHeight = 35;
+		classLabelHeight = 30;
+	}
+	else {
+		dayViewHeight = '10%';
+		dayLabelHeight = '92%';
+		classViewHeight = '9%';
+		classLabelHeight = '92%';
+	}
+	
 	var dayView = Ti.UI.createView({
 		//top:'2%',
-		height : '10%',
+		height : dayViewHeight,
 		width : '93%',
 		zIndex : 1
 	});
@@ -99,7 +114,7 @@ function setupClasses(wrapper, fontModifier, day, classArray) {
 		color : '#ece4ce',
 		backgroundColor : '#d29941',
 		text : '  ' + day,
-		height : 28 * fontModifier,
+		height : dayLabelHeight,
 		width : '93%',
 		textAlign : 'left',
 		//borderRadius : 10,
@@ -112,23 +127,22 @@ function setupClasses(wrapper, fontModifier, day, classArray) {
 	});
 	dayView.add(dayLabel);
 	wrapper.add(dayView);
-	
+
 	for (var i = 0; i < classArray.length; i++) {
 		var clazz = classArray[i];
-
+	
 		var view = Ti.UI.createView({
-			height : '9%',
+			height : classViewHeight,
 			width : '93%',
 			zIndex : 1,
 		});
 		var label = Ti.UI.createLabel({
 			color : '#DECC99',
 			borderColor : '#ece4ce',
-			//	borderRadius: 10,
 			textAlign : 'left',
-			height : 28 * fontModifier,
+			height : classLabelHeight,
 			borderWidth : 1.7,
-			width : '93%',
+			width : '92%',
 			text : ' ' + clazz.time + ' - ' + clazz.name,
 			font : {
 				fontFamily : 'Arial',
@@ -139,10 +153,10 @@ function setupClasses(wrapper, fontModifier, day, classArray) {
 			instructor : clazz.instructor,
 			room : clazz.room
 		});
-		view.addEventListener('click', function(e) {
+		label.addEventListener('click', function(e) {
 			var classInfo = 'Class: ' + e.source.name + '\nInstructor: ' + e.source.instructor
 				 + '\nTime: ' + e.source.time + '\nRoom: ' + e.source.room;
-			PopupWindow('Class Information', classInfo, '').open({animated : true});
+			var popupWindow = PopupWindow('Class Information', classInfo, '').open({animated : true});
 		});
 		view.add(label);
 		wrapper.add(view);

@@ -90,9 +90,24 @@ function GroupWindow(fontModifier) {
 function setupClasses(wrapper, fontModifier, day, classArray) {
 	var PopupWindow = require('ui/common/PopupWindow');
 	
+	var classViewHeight, classLabelHeight, dayViewHeight, dayLabelHeight;
+	var platform = Ti.Platform.osname;
+	if ( platform == 'android') {
+		dayViewHeight = 34;
+		dayLabelHeight = 32;
+		classViewHeight = 35;
+		classLabelHeight = 30;
+	}
+	else {
+		dayViewHeight = '10%';
+		dayLabelHeight = '91%';
+		classViewHeight = '9%';
+		classLabelHeight = '92%';
+	}
+	
 	var dayView = Ti.UI.createView({
 		//top:'2%',
-		height : '10%',
+		height : dayViewHeight,
 		width : '93%',
 		zIndex : 1
 	});
@@ -100,7 +115,7 @@ function setupClasses(wrapper, fontModifier, day, classArray) {
 		color : '#ece4ce',
 		backgroundColor : '#d29941',
 		text : '  ' + day,
-		height : 28 * fontModifier,
+		height : dayLabelHeight,
 		width : '93%',
 		textAlign : 'left',
 		//borderRadius : 10,
@@ -118,18 +133,17 @@ function setupClasses(wrapper, fontModifier, day, classArray) {
 		var clazz = classArray[i];
 	
 		var view = Ti.UI.createView({
-			height : '9%',
+			height : classViewHeight,
 			width : '93%',
 			zIndex : 1,
 		});
 		var label = Ti.UI.createLabel({
 			color : '#DECC99',
 			borderColor : '#ece4ce',
-			//	borderRadius: 10,
 			textAlign : 'left',
-			height : 28 * fontModifier,
+			height : classLabelHeight,
 			borderWidth : 1.7,
-			width : '93%',
+			width : '92%',
 			text : ' ' + clazz.time + ' - ' + clazz.name,
 			font : {
 				fontFamily : 'Arial',
