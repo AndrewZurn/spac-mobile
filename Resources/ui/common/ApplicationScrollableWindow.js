@@ -1,4 +1,5 @@
 function ApplicationScrollableWindow() {
+	
 	// import dependencies
 	var HomeWindow = require('ui/common/HomeWindow'), AthleticsWindow = require('ui/common/AthleticsWindow'), EventsWindow = require('ui/common/EventsWindow');
 

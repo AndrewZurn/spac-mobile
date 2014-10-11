@@ -3,7 +3,7 @@ var GROUP_FILENAME = "group_schedule.json";
 var PILATES_FILENAME = "pilates_schedule.json";
 var EVENTS_FILENAME = "events.json";
 
-var BASE_URL = "http://andrewzurn.com/spac-demo/";
+var BASE_URL = "http://andrewzurn.com/spac-demo/data/";
 
 exports.getSmallGroupSchedule = function(callback) {
 	getJSONFromURL(SMALL_GROUP_FILENAME, BASE_URL, callback, null);

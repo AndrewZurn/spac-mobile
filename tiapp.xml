@@ -13,6 +13,15 @@
     <analytics>true</analytics>
     <guid>6a476890-8525-49d3-ac28-9121289f70f2</guid>
     <property name="ti.ui.defaultunit" type="string">dp</property>
+    <!-- <property name="acs-push-type-development" type="string">gcm</property>
+    <property name="acs-push-type-production" type="string">gcm</property>
+    <property name="acs-push-type" type="string">gcm</property> -->
+    <property name="acs-api-key-development" type="string">PmH07X8M0h43xNEfkJsOwptZNIYctXIo</property>
+	<property name="acs-api-key-production" type="string">bLinGHmzN0rbgNRw16VI0u3BKvPysQtd</property>
+    <property name="acs-oauth-key-development" type="string">SCJJzps2xDEfhDE9riIL2rgUAHpyX78G</property>
+    <property name="acs-oauth-secret-development" type="string">aRtmOOt3YbmSbnekyCbOx56TbppsZfXc</property>
+    <property name="acs-oauth-key-production" type="string">cBPn7rYZKjCFZmHtGzZheBE5T6vSJjPa</property>
+    <property name="acs-oauth-secret-production" type="string">am14BVsb76iQVPcedSkI6gGURWmAcjr3</property>
     <ios>
         <plist>
             <dict>
@@ -47,7 +56,10 @@
         </splash>
         <theme>default</theme>
     </mobileweb>
-    <modules/>
+    <modules>
+        <module platform="commonjs">ti.cloud</module>
+        <module platform="android">ti.cloudpush</module>
+    </modules>
     <deployment-targets>
         <target device="android">true</target>
         <target device="blackberry">false</target>
