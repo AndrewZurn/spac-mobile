@@ -17,7 +17,7 @@
     <property name="acs-push-type-production" type="string">gcm</property>
     <property name="acs-push-type" type="string">gcm</property> -->
     <property name="acs-api-key-development" type="string">PmH07X8M0h43xNEfkJsOwptZNIYctXIo</property>
-	<property name="acs-api-key-production" type="string">bLinGHmzN0rbgNRw16VI0u3BKvPysQtd</property>
+    <property name="acs-api-key-production" type="string">bLinGHmzN0rbgNRw16VI0u3BKvPysQtd</property>
     <property name="acs-oauth-key-development" type="string">SCJJzps2xDEfhDE9riIL2rgUAHpyX78G</property>
     <property name="acs-oauth-secret-development" type="string">aRtmOOt3YbmSbnekyCbOx56TbppsZfXc</property>
     <property name="acs-oauth-key-production" type="string">cBPn7rYZKjCFZmHtGzZheBE5T6vSJjPa</property>
@@ -68,5 +68,5 @@
         <target device="mobileweb">true</target>
         <target device="tizen">false</target>
     </deployment-targets>
-    <sdk-version>3.3.0.GA</sdk-version>
+    <sdk-version>3.4.0.GA</sdk-version>
 </ti:app>

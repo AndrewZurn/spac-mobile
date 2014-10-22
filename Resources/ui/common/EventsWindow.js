@@ -25,29 +25,19 @@ function EventsWindow(window, navGroup) {
 		fontModifier = 1.25;
 	}
 	
-	var titleTop, width;
-	if (platform == 'android') {
-		titleTop = '6%';
-		width = '73%';
-	}
-	else {
-		titleTop = '2%';
-		width = '90%';
-	}
-	
 	// body
 	var wrapper = Ti.UI.createScrollView({
 		backgroundColor : 'transparent',
-		height : '87%',
-		width : '80%',
-		top : '5%',
-		layout : 'vertical'
+		height : '90%',
+		width : '80%', 
+		layout : 'vertical',
+		zIndex : 1
 	});
 	var titleLabel = Ti.UI.createLabel({
 		color : '#ece4ce',
-		text : 'Events',
-		top : titleTop,
-		width : width,
+		text : 'Schedule',
+		top : 5,
+		width : '90%',
 		textAlign : 'left',
 		font : {
 			fontFamily : 'Arial',
