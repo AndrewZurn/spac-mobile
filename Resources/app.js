@@ -35,7 +35,7 @@ if (Ti.version < 1.8) {
 	}
 	
 	var PushNotifications = require('ui/service/PushNotificationService');
-	PushNotifications();
+//	PushNotifications();
 
 	var isTablet = checkTablet();
 

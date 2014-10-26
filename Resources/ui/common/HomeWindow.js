@@ -8,6 +8,13 @@ function HomeWindow(navGroup) {
 		fontModifier = 1.25;
 	}
 	
+	var imagePath;
+	if ( platform == 'android' ) {
+		imagePath = '/images/HD/';
+	} else { // is iphone or ipad
+		imagePath = '/images/SD/';
+	}
+	
 	var platform = Ti.Platform.osname;
 	var titleTop, descriptionTop, lineOneTop, clubTop, clubHoursTop,
 		lineTwoTop, addressTop, phoneNumberTop, websiteLinkTop, width;
@@ -20,7 +27,7 @@ function HomeWindow(navGroup) {
 		lineTwoTop = '56%';
 		addressTop = '61%';
 		phoneNumberTop = '69%';
-		websiteLinkTop = '73%';
+		websiteLinkTop = '70%';
 		width = '73%';
 	}
 	else {
@@ -30,9 +37,9 @@ function HomeWindow(navGroup) {
 		clubTop = '55%';
 		clubHoursTop = '60%';
 		lineTwoTop = '68%';
-		addressTop = '76%';
+		addressTop = '74%';
 		phoneNumberTop = '86%';
-		websiteLinkTop = '91%';
+		websiteLinkTop = '86%';
 		width = '93%';
 	}
 	
@@ -130,19 +137,25 @@ function HomeWindow(navGroup) {
 		opacity : 1
 	});
 	
-	var phoneNumberLabel = Ti.UI.createLabel({
+	var phoneButton = Ti.UI.createButton({
+		image : imagePath + 'phone.png',
+		title : '  Call',
 		color : '#DECC99',
-		text : '(651) 291-7722',
-		top : phoneNumberTop,
-		width : width,
-		textAlign : 'left',
+		top : websiteLinkTop,
+		width : '42%',
+		height : '9%',
+		left : '6%',
+		style : 'none',
+		textAlign : 'center',
+		borderColor : '#DECC99',
+		borderWidth:1.7,
 		font : {
-			fontFamily : 'Arial',
-			fontSize : 15 * fontModifier
+			fontSize : 15 * fontModifier,
+			fontFamily : 'Times New Roman',
+			fontWeight : 'bold'
 		},
-		opacity : 1
 	});
-	phoneNumberLabel.addEventListener('click', function(e){
+	phoneButton.addEventListener('click', function(e){
 		var dialog = Ti.UI.createAlertDialog({
     		call: 0,
     		buttonNames: ['Call', 'Cancel'],
@@ -156,20 +169,25 @@ function HomeWindow(navGroup) {
 		dialog.show();
 	});
 	
-	var websiteLinkLabel = Ti.UI.createLabel({
-		color : '#417AD2',
-		text : 'thespac.com',
+	var websiteButton = Ti.UI.createButton({
+		image : imagePath + 'globe.png',
+		title : '  WWW',
+		color : '#DECC99',
 		top : websiteLinkTop,
-		width : width,
-		textAlign : 'left',
+		width : '42%',
+		height : '9%',
+		left : '52%',
+		style : 'none',
+		textAlign : 'center',
+		borderColor : '#DECC99',
+		borderWidth:1.7,
 		font : {
-			fontFamily : 'Arial',
-			fontSize : 15 * fontModifier,
-			textDecoration:'underline'
+			fontSize : 13,
+			fontFamily : 'Times New Roman',
+			fontWeight : 'bold'
 		},
-		opacity : 1
 	});
-	websiteLinkLabel.addEventListener('click', function(e){
+	websiteButton.addEventListener('click', function(e){
 		Ti.Platform.openURL('http://thespac.com');
 	});
 	
@@ -180,8 +198,8 @@ function HomeWindow(navGroup) {
 	wrapper.add(hoursLabel);
 	wrapper.add(lineLabel2);
 	wrapper.add(addressLabel);
-	wrapper.add(phoneNumberLabel);
-	wrapper.add(websiteLinkLabel);
+	wrapper.add(phoneButton);
+	wrapper.add(websiteButton);
 	
 	return wrapper;
 }

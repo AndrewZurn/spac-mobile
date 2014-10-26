@@ -53,16 +53,16 @@ function setupIOSNotifications() {
 	// Process incoming push notifications
 	function receivePush(e) {
 	  	var dialog = Ti.UI.createAlertDialog({
-		    message: JSON.parse(evt.payload).android.alert,
+		    message: JSON.parse(evt.payload).aps.alert,
 		    ok: 'Okay',
-		    title: JSON.parse(evt.payload).android.title
+		    title: JSON.parse(evt.payload).title
 		  });
 		dialog.show();
 	}
 	// Save the device token for subsequent API calls
 	function deviceTokenSuccess(e) {
 	    deviceToken = e.deviceToken;
-	    subscribeToPushChannel(deviceToken);
+	    subscribeToPushNotifications(deviceToken);
 	    Ti.API.log("DeviceId: " + deviceToken);
 	}
 	
