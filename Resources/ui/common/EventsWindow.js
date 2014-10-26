@@ -28,21 +28,22 @@ function EventsWindow(window, navGroup) {
 	// body
 	var wrapper = Ti.UI.createScrollView({
 		backgroundColor : 'transparent',
-		height : '90%',
+		height : '80%',
 		width : '80%', 
+		top : '7%',
 		layout : 'vertical',
 		zIndex : 1
 	});
 	var titleLabel = Ti.UI.createLabel({
 		color : '#ece4ce',
 		text : 'Schedule',
-		top : 5,
 		width : '90%',
 		textAlign : 'left',
+		top : 0,
 		font : {
 			fontFamily : 'Arial',
 			fontSize : 20 * fontModifier,
-			fontWeight : 'bold'
+			fontWeight : 'bold' 
 		},
 		opacity : 1
 	});

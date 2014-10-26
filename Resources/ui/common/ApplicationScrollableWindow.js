@@ -19,7 +19,7 @@ function ApplicationScrollableWindow() {
 			color : '#d29941',
 			height : 'auto',
 			width : 'auto',
-			top : 10,
+			//top : 10,
 			text : 'SAINT PAUL ATHLETIC CLUB',
 			textAlign : 'center',
 			font : {
@@ -53,7 +53,7 @@ function ApplicationScrollableWindow() {
 	var scrollableView = Ti.UI.createScrollableView({
 		views : [homeWindowView, athleticsWindowView, eventsWindowView],
 		showPagingControl : false,
-		height : '94%',
+		height : '95%',
 		top : '0%',
 	});
 	scrollableView.addEventListener('scroll', function(e) {//also takes care of
