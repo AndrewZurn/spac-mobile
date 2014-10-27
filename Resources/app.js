@@ -34,12 +34,8 @@ if (Ti.version < 1.8) {
 		}
 	}
 	
-	var PushNotifications = require('ui/service/PushNotificationService');
-//	PushNotifications();
-
-	var isTablet = checkTablet();
+	require('ui/service/PushNotificationService')();
 
 	var ApplicationScrollableWindow = require('ui/common/ApplicationScrollableWindow');
-
 	new ApplicationScrollableWindow().open();
 })();
