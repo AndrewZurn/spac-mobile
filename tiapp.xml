@@ -3,10 +3,10 @@
     <id>com.andrewzurn.spac</id>
     <name>SPAC</name>
     <version>1.0</version>
-    <publisher>Andrew</publisher>
+    <publisher>Andrew Zurn</publisher>
     <url>http://andrewzurn.com</url>
     <description>not specified</description>
-    <copyright>2014 by Andrew</copyright>
+    <copyright>2014 by Andrew Zurn</copyright>
     <icon>appicon.png</icon>
     <fullscreen>false</fullscreen>
     <navbar-hidden>false</navbar-hidden>
@@ -58,7 +58,7 @@
     </mobileweb>
     <modules>
         <module platform="commonjs">ti.cloud</module>
-        <module platform="android">ti.cloudpush</module>
+        <module platform="android" version="3.2.1">ti.cloudpush</module>
     </modules>
     <deployment-targets>
         <target device="android">true</target>

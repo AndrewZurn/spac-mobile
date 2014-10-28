@@ -17,7 +17,8 @@ function HomeWindow(navGroup) {
 	
 	var platform = Ti.Platform.osname;
 	var titleTop, descriptionTop, lineOneTop, clubTop, clubHoursTop,
-		lineTwoTop, addressTop, phoneNumberTop, websiteLinkTop, width;
+		lineTwoTop, addressTop, contactButtonTop, phoneButtonLeft,
+		websiteButtonLeft, buttonWidth, width;
 	if (platform == 'android') {
 		titleTop = '6%';
 		descriptionTop = '12%';
@@ -26,8 +27,10 @@ function HomeWindow(navGroup) {
 		clubHoursTop = '49%';
 		lineTwoTop = '56%';
 		addressTop = '61%';
-		phoneNumberTop = '69%';
-		websiteLinkTop = '70%';
+		contactButtonTop = '72%';
+		phoneButtonLeft = '12%';
+		websiteButtonLeft = '52%';
+		buttonWidth = '36%';
 		width = '73%';
 	}
 	else {
@@ -38,8 +41,10 @@ function HomeWindow(navGroup) {
 		clubHoursTop = '60%';
 		lineTwoTop = '68%';
 		addressTop = '74%';
-		phoneNumberTop = '86%';
-		websiteLinkTop = '86%';
+		contactButtonTop = '85%';
+		phoneButtonLeft = '6%';
+		websiteButtonLeft = '52%';
+		buttonWidth = '42%';
 		width = '93%';
 	}
 	
@@ -141,10 +146,10 @@ function HomeWindow(navGroup) {
 		image : imagePath + 'phone.png',
 		title : '  Call',
 		color : '#DECC99',
-		top : websiteLinkTop,
-		width : '42%',
+		top : contactButtonTop,
+		width : buttonWidth,
 		height : '9%',
-		left : '6%',
+		left : phoneButtonLeft,
 		style : 'none',
 		textAlign : 'center',
 		borderColor : '#DECC99',
@@ -173,16 +178,16 @@ function HomeWindow(navGroup) {
 		image : imagePath + 'globe.png',
 		title : '  WWW',
 		color : '#DECC99',
-		top : websiteLinkTop,
-		width : '42%',
+		top : contactButtonTop,
+		width : buttonWidth,
 		height : '9%',
-		left : '52%',
+		left : websiteButtonLeft,
 		style : 'none',
 		textAlign : 'center',
 		borderColor : '#DECC99',
 		borderWidth:1.7,
 		font : {
-			fontSize : 13,
+			fontSize : 15 * fontModifier,
 			fontFamily : 'Times New Roman',
 			fontWeight : 'bold'
 		},
