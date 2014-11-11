@@ -13,15 +13,12 @@
     <analytics>true</analytics>
     <guid>6a476890-8525-49d3-ac28-9121289f70f2</guid>
     <property name="ti.ui.defaultunit" type="string">dp</property>
-    <!-- <property name="acs-push-type-development" type="string">gcm</property>
-    <property name="acs-push-type-production" type="string">gcm</property>
-    <property name="acs-push-type" type="string">gcm</property> -->
-    <property name="acs-api-key-development" type="string">PmH07X8M0h43xNEfkJsOwptZNIYctXIo</property>
-    <property name="acs-api-key-production" type="string">bLinGHmzN0rbgNRw16VI0u3BKvPysQtd</property>
-    <property name="acs-oauth-key-development" type="string">SCJJzps2xDEfhDE9riIL2rgUAHpyX78G</property>
-    <property name="acs-oauth-secret-development" type="string">aRtmOOt3YbmSbnekyCbOx56TbppsZfXc</property>
-    <property name="acs-oauth-key-production" type="string">cBPn7rYZKjCFZmHtGzZheBE5T6vSJjPa</property>
-    <property name="acs-oauth-secret-production" type="string">am14BVsb76iQVPcedSkI6gGURWmAcjr3</property>
+    <property name="acs-api-key-development" type="string">c2AwxwyZBwXJzh0QQUAeCP7x3bspxOsd</property>
+    <property name="acs-api-key-production" type="string">gGXAXdq8xnTsmcestNn0P9Y1ypN8UrRZ</property>
+    <property name="acs-oauth-key-development" type="string">hwBiprX6u1rV9uYSdzJNjUPgi0b5XnjE</property>
+    <property name="acs-oauth-secret-development" type="string">R61U1kscCuQPDdDzRFxEW80DyPuDAfPD</property>
+    <property name="acs-oauth-key-production" type="string">Lnh5S4dsNN0vefdrghOiYU3NiA2DOZr5</property>
+    <property name="acs-oauth-secret-production" type="string">wk9qthQhdlBKOv9cAk1eIzHbnXuQCbGC</property>
     <ios>
         <plist>
             <dict>
