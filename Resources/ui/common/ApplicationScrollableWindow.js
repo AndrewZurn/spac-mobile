@@ -56,7 +56,7 @@ function ApplicationScrollableWindow() {
 		height : '95%',
 		top : '0%',
 	});
-	scrollableView.addEventListener('scroll', function(e) {//also takes care of
+	scrollableView.addEventListener('scroll', function(e) { //also takes care of
 		if (e.currentPage == 0) {
 			updateButtonLayouts(homeButton);
 		} else if (e.currentPage == 1) {

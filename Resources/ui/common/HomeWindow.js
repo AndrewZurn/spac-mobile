@@ -143,8 +143,7 @@ function HomeWindow(navGroup) {
 	});
 	
 	var phoneButton = Ti.UI.createButton({
-		image : imagePath + 'phone.png',
-		title : '  Call',
+		title : 'Call',
 		color : '#DECC99',
 		top : contactButtonTop,
 		width : buttonWidth,
@@ -168,15 +167,20 @@ function HomeWindow(navGroup) {
   		});
   		dialog.addEventListener('click', function(e){
     		if (e.index === e.source.call){
-		      	Ti.Platform.openURL('tel:9526490887');
+		      	Ti.Platform.openURL('tel:6512917722');
 			}
 		});
 		dialog.show();
 	});
 	
+	// if iOS add the button image, android image is too small, so dont add
+	if (Ti.Platform.osname !== 'android') {
+		phoneButton.title = '  Call';
+		phoneButton.image = imagePath + 'phone.png';
+	}
+	
 	var websiteButton = Ti.UI.createButton({
-		image : imagePath + 'globe.png',
-		title : '  WWW',
+		title : 'Website',
 		color : '#DECC99',
 		top : contactButtonTop,
 		width : buttonWidth,
@@ -195,6 +199,12 @@ function HomeWindow(navGroup) {
 	websiteButton.addEventListener('click', function(e){
 		Ti.Platform.openURL('http://thespac.com');
 	});
+	
+	// if iOS add the button image, android image is too small, so dont add
+	if (Ti.Platform.osname !== 'android') {
+		websiteButton.title = '  WWW';
+		websiteButton.image = imagePath + 'globe.png';
+	}
 	
 	wrapper.add(titleLabel);
 	wrapper.add(label);

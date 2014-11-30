@@ -6,7 +6,7 @@ function EventsWindow(window, navGroup) {
 	// get the current schedule, and add elements to the screen
 	ServiceHelper.getEventsSchedule(function(events) {
 		var eventsArray = events.events;
-		setupEvents(wrapper, fontModifier, eventsArray);
+		setupEvents(wrapper, eventsArray);
 		
 		var blankView = Ti.UI.createView({
 			text : '',
@@ -16,56 +16,33 @@ function EventsWindow(window, navGroup) {
 	});
 	
 	var platform = Ti.Platform.osname;
-	var platformHeight = Ti.Platform.displayCaps.platformHeight;
-	var fontModifier = 1;
-
-	if (platformHeight >= 500) {
-		fontModifier = 1.1;
-	} else if (platformHeight >= 1200) {
-		fontModifier = 1.25;
-	}
 	
-	// body
-	var wrapper = Ti.UI.createScrollView({
-		backgroundColor : 'transparent',
-		height : '80%',
-		width : '80%', 
-		top : '7%',
-		layout : 'vertical',
-		zIndex : 1
-	});
-	var titleLabel = Ti.UI.createLabel({
-		color : '#ece4ce',
-		text : 'Schedule',
-		width : '90%',
-		textAlign : 'left',
-		top : 0,
-		font : {
-			fontFamily : 'Arial',
-			fontSize : 20 * fontModifier,
-			fontWeight : 'bold' 
-		},
-		opacity : 1
-	});
-	wrapper.add(titleLabel);
+	var wrapper;
+	if (platform === 'android') {
+		wrapper = setupAndroidWindow();
+	} else {
+		wrapper = setupIOSWindow();
+	}
 
 	return wrapper;
 }
 
-function setupEvents(wrapper, fontModifier, eventsArray) {
+function setupEvents(wrapper, eventsArray) {
 	var PopupWindow = require('ui/common/PopupWindow');
 	
 	var platform = Ti.Platform.osname;
-	var width, viewHeight, labelHeight;
+	var width, viewHeight, labelHeight, fontModifier;
 	if (platform == 'android') {
 		width = '85%';
 		viewHeight = 72;
-		labelHeight = 63;
+		labelHeight = 66;
+		fontModifier = 1.18;
 	}
 	else {
 		width = '93%';
 		viewHeight = '20%';
 		labelHeight = '85%';
+		fontModifier = 1.1;
 	}
 	
 	for(var i = 0; i < eventsArray.length; i++) {
@@ -100,4 +77,67 @@ function setupEvents(wrapper, fontModifier, eventsArray) {
 		wrapper.add(view);	
 	}
 }
+
+function setupAndroidWindow() {
+	
+	var fontModifier = 1.18;
+	
+	// body
+	var wrapper = Ti.UI.createScrollView({
+		backgroundColor : 'transparent',
+		height : '80%',
+		width : '80%', 
+		top : '7%',
+		layout : 'vertical',
+		zIndex : 1
+	});
+	var titleLabel = Ti.UI.createLabel({
+		color : '#ece4ce',
+		text : 'Schedule',
+		width : '74%',
+		textAlign : 'left',
+		top : '6%',
+		font : {
+			fontFamily : 'Arial',
+			fontSize : 20 * fontModifier,
+			fontWeight : 'bold' 
+		},
+		opacity : 1
+	});
+	wrapper.add(titleLabel);
+	
+	return wrapper;
+}
+
+function setupIOSWindow() {
+	
+	var fontModifier = 1.1;
+	
+	// body
+	var wrapper = Ti.UI.createScrollView({
+		backgroundColor : 'transparent',
+		height : '80%',
+		width : '80%', 
+		top : '7%',
+		layout : 'vertical',
+		zIndex : 1
+	});
+	var titleLabel = Ti.UI.createLabel({
+		color : '#ece4ce',
+		text : 'Schedule',
+		width : '90%',
+		textAlign : 'left',
+		top : 0,
+		font : {
+			fontFamily : 'Arial',
+			fontSize : 20 * fontModifier,
+			fontWeight : 'bold' 
+		},
+		opacity : 1
+	});
+	wrapper.add(titleLabel);
+	
+	return wrapper;
+}
+
 module.exports = EventsWindow;
