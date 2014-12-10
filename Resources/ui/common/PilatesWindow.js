@@ -4,13 +4,13 @@ function PilatesWindow(fontModifier) {
 	var platform = Ti.Platform.osname;
 	
 	ServiceHelper.getPilatesSchedule(function(schedule) {
-		var mondayClassArray = schedule.monday.clazz;
-		var tuesdayClassArray = schedule.tuesday.clazz;
-		var wednesdayClassArray = schedule.wednesday.clazz;
-		var thursdayClassArray = schedule.thursday.clazz;
-		var fridayClassArray = schedule.friday.clazz;
-		var saturdayClassArray = schedule.saturday.clazz;
-		var sundayClassArray = schedule.sunday.clazz;
+		var mondayClassArray = schedule.classSchedule[0].classes;
+		var tuesdayClassArray = schedule.classSchedule[1].classes;
+		var wednesdayClassArray = schedule.classSchedule[2].classes;
+		var thursdayClassArray = schedule.classSchedule[3].classes;
+		var fridayClassArray = schedule.classSchedule[4].classes;
+		var saturdayClassArray = schedule.classSchedule[5].classes;
+		var sundayClassArray = schedule.classSchedule[6].classes;
 
 		setupClasses(wrapper, fontModifier, 'MONDAY', mondayClassArray);
 		setupClasses(wrapper, fontModifier, 'TUESDAY', tuesdayClassArray);

@@ -5,7 +5,7 @@ function EventsWindow(window, navGroup) {
 	
 	// get the current schedule, and add elements to the screen
 	ServiceHelper.getEventsSchedule(function(events) {
-		var eventsArray = events.events;
+		var eventsArray = events.eventSchedule;
 		setupEvents(wrapper, eventsArray);
 		
 		var blankView = Ti.UI.createView({
