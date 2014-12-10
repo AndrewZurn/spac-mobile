@@ -3,22 +3,27 @@ var GROUP_FILENAME = "group_schedule.json";
 var PILATES_FILENAME = "pilates_schedule.json";
 var EVENTS_FILENAME = "events.json";
 
-var BASE_URL = "http://andrewzurn.com/spac-demo/data/";
+var GROUP_URI = "/schedule/group"
+var SMALL_GROUP_URI = "/schedule/small_group"
+var PILATES_URI = "/schedule/pilates"
+var EVENTS_URI = "/events"
 
-exports.getSmallGroupSchedule = function(callback) {
-	getJSONFromURL(SMALL_GROUP_FILENAME, BASE_URL, callback, null);
-};
+var BASE_URI = "https://spac-mobile-editor.herokuapp.com";
 
 exports.getGroupSchedule = function(callback) {
-	getJSONFromURL(GROUP_FILENAME, BASE_URL, callback, null);
+	getJSONFromURL(GROUP_URI, BASE_URI, callback, null);
+};
+
+exports.getSmallGroupSchedule = function(callback) {
+	getJSONFromURL(SMALL_GROUP_URI, BASE_URI, callback, null);
 };
 
 exports.getPilatesSchedule = function(callback) {
-	getJSONFromURL(PILATES_FILENAME, BASE_URL, callback, null);
+	getJSONFromURL(PILATES_URI, BASE_URI, callback, null);
 };
 
 exports.getEventsSchedule = function(callback) {
-	getJSONFromURL(EVENTS_FILENAME, BASE_URL, callback, null);
+	getJSONFromURL(EVENTS_URI, BASE_URI, callback, null);
 };
 
 exports.getInstructorInfo = function(instructorId, callback) {
@@ -29,7 +34,7 @@ exports.getClassInfo = function(classId, callback) {
 	// will need to figure out later
 };
 
-function getJSONFromURL(filename, url, callback, fn_progress) {
+function getJSONFromURL(schedule_uri, base_uri, callback, fn_progress) {
 	var myHttpClient = Ti.Network.createHTTPClient();
 
 	myHttpClient.onload = function() {
@@ -42,6 +47,6 @@ function getJSONFromURL(filename, url, callback, fn_progress) {
 		alert('Could not retrieve data for item. Please try again later.');
 	};
 
-	myHttpClient.open("GET", url + filename);
+	myHttpClient.open("GET", base_uri + schedule_uri);
 	myHttpClient.send(null);
 }
