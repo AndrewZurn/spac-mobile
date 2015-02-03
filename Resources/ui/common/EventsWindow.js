@@ -12,7 +12,7 @@ function EventsWindow(window, navGroup) {
 			text : '',
 			height : 10
 		});
-		wrapper.add(blankView);
+		wrapper.add(blankView);	
 	});
 	
 	var platform = Ti.Platform.osname;

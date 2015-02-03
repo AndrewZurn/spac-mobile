@@ -17,15 +17,15 @@ function AthleticsWindow(navGroup) {
 	if (platform == 'android') {
 		titleTop = '6%';
 		groupButtonTop = '13%';
-		smallButtonTop = '26%';
-		pilatesButtonTop = '39%';
+		smallButtonTop = '33%';
+		pilatesButtonTop = '53%';
 		width = '73%';
 	}
 	else {
 		titleTop = '2%';
 		groupButtonTop = '12%';
-		smallButtonTop = '25%';
-		pilatesButtonTop = '38%';
+		smallButtonTop = '32%';
+		pilatesButtonTop = '52%';
 		width = '90%';
 	}
 
@@ -54,7 +54,7 @@ function AthleticsWindow(navGroup) {
 	var groupButton = Ti.UI.createButton({
 		title : 'Group Fitness Schedule',
 		top : groupButtonTop,
-		height : '10%',
+		height : '17%',
 		width : width,
 		color : '#DECC99',
 		textAlign : 'center',
@@ -76,9 +76,9 @@ function AthleticsWindow(navGroup) {
 
 	// create the small group fitness button
 	var smallButton = Ti.UI.createButton({
-		title : 'Small Group Schedule',
+		title : 'Small Group Schedule *',
 		top : smallButtonTop,
-		height : '10%',
+		height : '17%',
 		width : width,
 		color : '#DECC99',
 		textAlign : 'center',
@@ -100,9 +100,9 @@ function AthleticsWindow(navGroup) {
 
 	// create the pilates group fitness button
 	var pilatesButton = Ti.UI.createButton({
-		title : 'Pilates Schedule',
+		title : 'Pilates Reformer *',
 		top : pilatesButtonTop,
-		height : '10%',
+		height : '17%',
 		width : width,
 		color : '#DECC99',
 		textAlign : 'center',
@@ -121,11 +121,23 @@ function AthleticsWindow(navGroup) {
 			navGroup.openWindow(PilatesWindow(fontModifier), {animated : true});	
 		}
 	});
+	
+	var exclusionLabel = Ti.UI.createLabel({
+		text : '* Please contact us for prices and registration of these classes',
+		width : width,
+		color : '#DECC99',
+		bottom : '0%',
+		font : {
+			fontFamily : 'Arial',
+			fontSize : 12 * fontModifier
+		},
+	});
 
 	wrapper.add(titleLabel);
 	wrapper.add(groupButton);
 	wrapper.add(smallButton);
 	wrapper.add(pilatesButton);
+	wrapper.add(exclusionLabel);
 
 	return wrapper;
 }
